@@ -16,8 +16,8 @@ PBYTE __wrap_memset(PBYTE Destination, BYTE Data, SIZE_T Count)
 }
 
 BOOL (*_ClipCursor)(LPRECT) = NULL;
-INT (*_ShowCursor)(BOOL bShow) = NULL;
-BOOL (*_SetCursorPos)(int X, int Y) = NULL;
+INT (*_ShowCursor)(BOOL) = NULL;
+BOOL (*_SetCursorPos)(INT, INT) = NULL;
 
 BOOL $ClipCursor(LPRECT lpRect)
 {
@@ -41,7 +41,7 @@ INT $ShowCursor(BOOL bShow)
     return _ShowCursor(bShow);
 }
 
-BOOL $SetCursorPos(int X, int Y)
+BOOL $SetCursorPos(INT X, INT Y)
 {
     if (GetActiveWindow())
     {
