@@ -1,5 +1,4 @@
 #define _MINAPPMODEL_H_
-#include <windows.h>
 #include <minhook.h>
 #include <appmodel.h>
 
