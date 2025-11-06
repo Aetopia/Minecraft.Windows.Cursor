@@ -61,17 +61,18 @@ BOOL DllMainCRTStartup(HINSTANCE hInstance, DWORD dwReason, PVOID pReserved)
 {
     if (dwReason == DLL_PROCESS_ATTACH)
     {
+        DisableThreadLibraryCalls(hInstance);
+
         WCHAR szString[APPLICATION_USER_MODEL_ID_MAX_LENGTH] = {};
 
         if (GetCurrentPackageFamilyName(&(UINT){ARRAYSIZE(szString)}, szString) ||
-            CompareStringOrdinal(szString, 1, L"Microsoft.MinecraftUWP_8wekyb3d8bbwe", -1, TRUE) != CSTR_EQUAL)
+            CompareStringOrdinal(szString, -1, L"Microsoft.MinecraftUWP_8wekyb3d8bbwe", -1, TRUE) != CSTR_EQUAL)
             return FALSE;
 
         if (GetCurrentApplicationUserModelId(&(UINT){ARRAYSIZE(szString)}, szString) ||
             CompareStringOrdinal(szString, -1, L"Microsoft.MinecraftUWP_8wekyb3d8bbwe!Game", -1, TRUE) != CSTR_EQUAL)
             return FALSE;
 
-        DisableThreadLibraryCalls(hInstance);
         MH_Initialize();
 
         MH_CreateHook(ClipCursor, &$ClipCursor, (PVOID)&_ClipCursor);
