@@ -1,3 +1,7 @@
+> [!CAUTION]
+> - This project has been deprecated in favor of [Igneous](https://github.com/Aetopia/Igneous).
+> - Igneous focuses on fixing known bugs on Mojang's Bug Tracker for [Minecraft: Bedrock Edition](https://bugs.mojang.com/browse/MCPE).
+
 # Minecraft for Windows Cursor
 Fixes wonky cursor issues with Minecraft: Bedrock Edition (GDK).
 
@@ -18,5 +22,6 @@ Fixes wonky cursor issues with Minecraft: Bedrock Edition (GDK).
     ```bash
     pacman -Syu mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-MinHook --noconfirm
     ```
+
 
 3. Start MSYS2's `UCRT64` environment & run `Build.cmd`.
